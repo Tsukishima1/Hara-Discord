@@ -15,7 +15,7 @@ datasource db {
 
 // 用户
 model Profile {
-  id    String @id @default(auto()) @map("_id") @db.ObjectId
+  id    String @id @default(uuid()) @map("_id") @db.ObjectId
   userId String @unique
   name  String
   imageUrl String @db.String
@@ -31,7 +31,7 @@ model Profile {
 
 // 服务器
 model Server {
-  id String @id @default(auto()) @map("_id") @db.ObjectId
+  id String @id @default(uuid()) @map("_id") @db.ObjectId
   name String
   imageUrl String @db.String
   inviteCode String @db.String
@@ -56,7 +56,7 @@ enum MemberRole {
 }
 
 model Member {
-  id String @id @default(auto()) @map("_id") @db.ObjectId
+  id String @id @default(uuid()) @map("_id") @db.ObjectId
   role MemberRole @default(GUEST)
 
   profileId String @db.ObjectId
@@ -79,7 +79,7 @@ enum ChannelType {
 }
 
 model Channel {
-  id String @id @default(auto()) @map("_id") @db.ObjectId
+  id String @id @default(uuid()) @map("_id") @db.ObjectId
   name String
   type ChannelType @default(TEXT)
 
