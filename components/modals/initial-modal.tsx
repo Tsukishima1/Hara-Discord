@@ -38,12 +38,12 @@ const formSchema = z.object({
 
 export const InitialModal = () => {
     const [isMounted, setIsMounted] = useState(false);
-    const router = useRouter();
-
+    
     useEffect(()=>{
         setIsMounted(true);
     },[]);
-
+    
+    const router = useRouter();
     const form = useForm({
         resolver: zodResolver(formSchema),
         defaultValues: {
@@ -82,7 +82,6 @@ export const InitialModal = () => {
                         always change it later.
                     </DialogDescription>
                 </DialogHeader>
-
                 <Form {...form}>
                     <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
                         <div className="space-y-8 px-6">
